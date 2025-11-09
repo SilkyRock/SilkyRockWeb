@@ -5,137 +5,556 @@
   <title>StephyCakes - Custom Cakes by Steph</title>
   <meta name="description" content="StephyCakes offers beautiful custom cakes for weddings, birthdays, and all occasions. Professionally trained chef with certified food handling.">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="styles.css" />
   <style>
-    body {
-      background: linear-gradient(135deg, #40e0d0 0%, #b2fefa 100%);
-      font-family: 'Segoe UI', Arial, sans-serif;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @keyframes shimmer {
+      0% { background-position: -1000px 0; }
+      100% { background-position: 1000px 0; }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+    
+    body {
+      background: linear-gradient(-45deg, #40e0d0, #b2fefa, #5de8d9, #7fffd4);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #222;
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: 
+        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 1;
+    }
+    
     header {
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-      padding: 1.5rem 0 0.5rem 0;
-      text-align: center;
+      background: rgba(255,255,255,0.98);
+      backdrop-filter: blur(20px) saturate(180%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      padding: 1.5rem 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border-bottom: 3px solid transparent;
+      background-clip: padding-box;
     }
+    
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, #40e0d0, #e67e22, #40e0d0);
+      background-size: 200% 100%;
+      animation: shimmer 3s linear infinite;
+    }
+    
+    .header-content {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+    
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
     header img {
-      width: 180px;
+      width: 280px;
       height: auto;
-      display: block;
-      margin: 0 auto 0.5rem auto;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: drop-shadow(0 4px 12px rgba(64,224,208,0.3));
     }
+    
+    header img:hover {
+      transform: scale(1.08) rotate(-2deg);
+      filter: drop-shadow(0 8px 24px rgba(64,224,208,0.5));
+    }
+    
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #007a7a 0%, #40e0d0 50%, #007a7a 100%);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: 2px;
+      font-weight: 800;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      animation: shimmer 4s linear infinite;
+      white-space: nowrap;
+    }
+    
+    nav {
+      animation: fadeInUp 0.8s ease-out 0.2s backwards;
+    }
+    
     nav ul {
       list-style: none;
-      padding: 0;
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin: 0.5rem 0 0 0;
+      justify-content: flex-end;
+      gap: 1rem;
+      flex-wrap: wrap;
     }
-    nav li {
-      font-size: 1.05rem;
-    }
+    
     nav a {
       text-decoration: none;
       color: #007a7a;
-      font-weight: 600;
-      transition: color 0.2s;
+      font-weight: 700;
+      font-size: 1rem;
+      padding: 0.7rem 1.5rem;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      position: relative;
+      white-space: nowrap;
+      overflow: hidden;
+      background: rgba(64,224,208,0.1);
+      border: 2px solid transparent;
     }
+    
     nav a:hover {
-      color: #e67e22;
+      color: white;
+      background: linear-gradient(135deg, #40e0d0, #5de8d9);
+      border-color: #40e0d0;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(64,224,208,0.4);
     }
+    
     main {
-      max-width: 900px;
-      margin: 2.5rem auto;
-      background: rgba(255,255,255,0.97);
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.07);
-      padding: 2.5rem 2rem;
+      max-width: 1300px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
     }
+    
     section {
-      margin-bottom: 2.5rem;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(20px) saturate(180%);
+      border-radius: 30px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+      padding: 4rem 3rem;
+      margin-bottom: 3rem;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out backwards;
     }
-    h1 {
-      margin: 0 0 0.3rem 0;
-      font-size: 2.3rem;
-      color: #007a7a;
-      letter-spacing: 1px;
+    
+    section:nth-child(1) { animation-delay: 0.1s; }
+    section:nth-child(2) { animation-delay: 0.2s; }
+    section:nth-child(3) { animation-delay: 0.3s; }
+    
+    section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(64,224,208,0.1) 0%, transparent 70%);
+      transition: all 0.6s ease;
+      opacity: 0;
     }
+    
+    section:hover::before {
+      opacity: 1;
+      top: -40%;
+      right: -40%;
+    }
+    
+    section:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.2);
+    }
+    
     h2 {
       color: #007a7a;
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-      font-size: 1.5rem;
-      border-bottom: 2px solid #b2fefa;
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      position: relative;
       display: inline-block;
-      padding-bottom: 0.2rem;
+      font-weight: 800;
     }
+    
+    h2::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, #40e0d0, #e67e22);
+      border-radius: 2px;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #e67e22, #40e0d0);
+      border-radius: 2px;
+      transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    section:hover h2::after {
+      width: 100%;
+    }
+    
+    #about p {
+      font-size: 1.2rem;
+      line-height: 2;
+      color: #333;
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
     .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      justify-content: center;
-      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2.5rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
     }
-    .gallery img {
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.10);
-      width: 170px;
-      height: auto;
-      background: #e0f7fa;
-      transition: transform 0.18s;
+    
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 25px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      aspect-ratio: 1;
+      animation: fadeInUp 0.8s ease-out backwards;
     }
-    .gallery img:hover {
-      transform: scale(1.04);
+    
+    .gallery-item:nth-child(1) { animation-delay: 0.1s; }
+    .gallery-item:nth-child(2) { animation-delay: 0.2s; }
+    .gallery-item:nth-child(3) { animation-delay: 0.3s; }
+    .gallery-item:nth-child(4) { animation-delay: 0.4s; }
+    
+    .gallery-item::after {
+      content: '🎂';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-size: 4rem;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 3;
+      filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
     }
-    .contact-info {
-      font-size: 1.08rem;
-      margin-top: 0.7rem;
+    
+    .gallery-item:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
     }
-    .contact-info a {
+    
+    .gallery-item:hover {
+      transform: translateY(-15px) scale(1.03);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+    }
+    
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .gallery-item:hover img {
+      transform: scale(1.15) rotate(2deg);
+      filter: brightness(0.7);
+    }
+    
+    .gallery-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(64,224,208,0.6), rgba(230,126,34,0.6));
+      opacity: 0;
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 2;
+    }
+    
+    .gallery-item:hover::before {
+      opacity: 1;
+    }
+    
+    #contact {
+      text-align: center;
+      background: linear-gradient(135deg, rgba(64,224,208,0.15), rgba(178,254,250,0.15));
+      position: relative;
+      z-index: 1;
+    }
+    
+    #contact p {
+      font-size: 1.3rem;
+      line-height: 2;
+      color: #333;
+      font-weight: 500;
+    }
+    
+    #contact a {
       color: #007a7a;
-      word-break: break-all;
+      font-weight: 800;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #40e0d0, #5de8d9);
+      color: white;
+      margin: 1rem 0;
+      box-shadow: 0 8px 20px rgba(64,224,208,0.3);
     }
+    
+    #contact a::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    #contact a:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    
+    #contact a:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 15px 40px rgba(64,224,208,0.5);
+    }
+    
     .external-link {
       display: inline-block;
-      margin-top: 0.7rem;
-      color: #e67e22;
-      font-weight: bold;
+      margin-top: 1.5rem;
+      color: white;
+      font-weight: 700;
       text-decoration: none;
-      transition: color 0.2s;
+      padding: 1rem 2rem;
+      background: linear-gradient(135deg, #e67e22, #f39c12);
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 8px 20px rgba(230,126,34,0.3);
+      position: relative;
+      overflow: hidden;
     }
+    
+    .external-link::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+    
+    .external-link:hover::before {
+      width: 400px;
+      height: 400px;
+    }
+    
     .external-link:hover {
-      color: #007a7a;
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 15px 40px rgba(230,126,34,0.5);
     }
-    @media (max-width: 700px) {
-      main {
-        padding: 1rem 0.4rem;
+    
+    footer {
+      text-align: center;
+      padding: 3rem;
+      color: rgba(0,0,0,0.7);
+      font-size: 1rem;
+      font-weight: 600;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(10px);
+      position: relative;
+      z-index: 2;
+    }
+    
+    @media (max-width: 900px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
       }
+      
+      .logo-section {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      nav ul {
+        justify-content: center;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      header img {
+        width: 200px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+      }
+      
+      h1 {
+        font-size: 1.8rem;
+      }
+      
+      h2 {
+        font-size: 2rem;
+      }
+      
+      nav ul {
+        gap: 0.5rem;
+      }
+      
+      nav a {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+      }
+      
+      section {
+        padding: 2.5rem 2rem;
+        margin-bottom: 2rem;
+      }
+      
       .gallery {
-        gap: 0.7rem;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
       }
+      
+      header img {
+        width: 150px;
+      }
+      
+      main {
+        padding: 0 1rem;
+        margin: 2rem auto;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.5rem;
+        letter-spacing: 1px;
+      }
+      
       nav ul {
         flex-direction: column;
-        gap: 0.6rem;
+        gap: 0.5rem;
+        align-items: center;
+      }
+      
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      header img {
+        width: 120px;
+      }
+      
+      section {
+        padding: 2rem 1.5rem;
       }
     }
   </style>
 </head>
 <body>
   <header>
-    <a href="index.html" aria-label="StephyCakes Home">
-      <img src="stephycakeslogo.png" alt="StephyCakes logo">
-    </a>
-    <h1>StephyCakes</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">About Stephy</a></li>
-        <li><a href="#gallery">Past Work</a></li>
-        <li><a href="#products">Pricing & Products</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <div class="header-content">
+      <div class="logo-section">
+        <a href="index.html" aria-label="StephyCakes Home">
+          <img src="stephycakeslogo.png" alt="StephyCakes logo">
+        </a>
+        <h1>StephyCakes</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#about">About Stephy</a></li>
+          <li><a href="#gallery">Past Work</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
   </header>
 
   <main>
@@ -144,50 +563,39 @@
       <p>
         Hi, I'm Steph! As a professionally trained chef, I bring artistry and passion to every cake I make. I'm proud to hold a certified food handler's certificate, ensuring every treat is as safe as it is delicious. From elegant wedding cakes to playful birthday creations, I love working with you to design something truly special.
       </p>
+      <!--
       <a class="external-link" href="https://worksitesafety.ca/" target="_blank" rel="noopener">See my food safety certification</a>
+      -->
     </section>
 
     <section id="gallery">
       <h2>Past Work</h2>
       <div class="gallery">
-        <a href="cake1wedding.jpg" target="_blank" rel="noopener noreferrer">
+        <a href="cake1wedding.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
           <img src="cake1wedding.jpg" alt="Elegant white wedding cake with floral decoration">
         </a>
-        <a href="caake2kid.jpg" target="_blank" rel="noopener noreferrer">
+        <a href="caake2kid.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
           <img src="caake2kid.jpg" alt="Colorful children's birthday cake with fun decorations">
         </a>
-        <a href="cake3cross.jpg" target="_blank" rel="noopener noreferrer">
+        <a href="cake3cross.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
           <img src="cake3cross.jpg" alt="Cross-shaped cake for a special occasion">
         </a>
-        <a href="cake4batman.jpg" target="_blank" rel="noopener noreferrer">
+        <a href="cake4batman.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
           <img src="cake4batman.jpg" alt="Batman-themed cake with logo and cityscape">
         </a>
       </div>
     </section>
 
-    <section id="products">
-      <h2>Pricing & Products</h2>
-      <ul>
-        <li>Custom Cakes (start at $80, varies by size and design)</li>
-        <li>Cupcake Dozens (from $40)</li>
-        <li>Specialty Fondant and Character Cakes (quote on request)</li>
-        <li>All items made fresh-to-order in a food-safe kitchen</li>
-      </ul>
-      <p>Contact me for a custom quote—I'd love to make your bakery dreams come true!</p>
-    </section>
-
     <section id="contact">
       <h2>Contact</h2>
-      <div class="contact-info">
-        <strong>Email:</strong>
-        <a href="mailto:stephycakes@hotmail.ca">stephycakes@hotmail.ca</a>
-        <!--
-        <br>
-        <strong>Instagram:</strong>
-        <a href="https://instagram.com/yourstephycakes" target="_blank" rel="noopener">@yourstephycakes</a>
-        -->
-      </div>
+      <p>
+        Contact <a href="mailto:stephycakes@hotmail.ca">stephycakes@hotmail.ca</a> to get a quote and discuss local pickup or delivery around Bolton, ON.
+      </p>
     </section>
   </main>
+
+  <footer>
+    <p>&copy; 2024 StephyCakes. All rights reserved.</p>
+  </footer>
 </body>
 </html>
