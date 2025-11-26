@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>StephyCakes - Custom Cakes by Steph</title>
-  <meta name="description" content="StephyCakes offers beautiful custom cakes for weddings, birthdays, and all occasions. Professionally trained chef with certified food handling.">
+  <title>StephyCakes - Custom Cakes & Sweet Treats in Bolton, ON | Wedding Cakes, Birthday Cakes, Chocolate Gifts</title>
+  
+  <!-- SEO Meta Tags - EDIT THESE FOR BETTER GOOGLE SEARCH -->
+  <meta name="description" content="StephyCakes offers beautiful custom cakes, chocolate-covered strawberries, gourmet gift boxes, and all your sweet treat needs in Bolton, Ontario. Professionally trained chef with certified food handling. Perfect for weddings, birthdays, and special occasions.">
+  <meta name="keywords" content="custom cakes Bolton, wedding cakes Ontario, birthday cakes, chocolate covered strawberries, gourmet gift boxes, sweet treats Bolton, custom desserts, chocolate gifts, cake decorator Bolton ON">
+  <meta name="author" content="StephyCakes">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Open Graph for Social Media -->
+  <meta property="og:title" content="StephyCakes - Custom Cakes & Sweet Treats">
+  <meta property="og:description" content="Beautiful custom cakes and gourmet sweet treats in Bolton, ON">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="stephycakeslogobest.png">
+  
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <!-- Schema.org structured data for better SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "StephyCakes",
+    "description": "Custom cakes and sweet treats",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bolton",
+      "addressRegion": "ON",
+      "addressCountry": "CA"
+    },
+    "email": "stephycakes@hotmail.ca",
+    "priceRange": "$$"
+  }
+  </script>
+  
   <style>
     * {
       margin: 0;
@@ -124,17 +155,7 @@
     }
     
     h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, #007a7a 0%, #40e0d0 50%, #007a7a 100%);
-      background-size: 200% auto;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      letter-spacing: 2px;
-      font-weight: 800;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-      animation: shimmer 4s linear infinite;
-      white-space: nowrap;
+      display: none;
     }
     
     nav {
@@ -196,6 +217,7 @@
     section:nth-child(1) { animation-delay: 0.1s; }
     section:nth-child(2) { animation-delay: 0.2s; }
     section:nth-child(3) { animation-delay: 0.3s; }
+    section:nth-child(4) { animation-delay: 0.4s; }
     
     section::before {
       content: '';
@@ -264,6 +286,120 @@
       margin-bottom: 1.5rem;
       position: relative;
       z-index: 1;
+    }
+    
+    .instagram-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1rem;
+      color: #007a7a;
+      font-weight: 700;
+      text-decoration: none;
+      padding: 0.8rem 1.8rem;
+      border-radius: 50px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+      color: white;
+      box-shadow: 0 8px 20px rgba(131,58,180,0.3);
+      font-size: 1.1rem;
+    }
+    
+    .instagram-link:hover {
+      transform: scale(1.1) translateY(-3px);
+      box-shadow: 0 15px 40px rgba(131,58,180,0.5);
+    }
+    
+    /* ========== PRODUCTS SECTION - EDIT PRODUCTS HERE ========== */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 3rem;
+      margin-top: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .product-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      animation: fadeInUp 0.8s ease-out backwards;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+    }
+    
+    .product-images {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      background: #f8f8f8;
+    }
+    
+    .product-main-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: all 0.5s ease;
+    }
+    
+    .product-card:hover .product-main-image {
+      transform: scale(1.1);
+    }
+    
+    .product-detail-image {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 3px solid white;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    
+    .product-detail-image:hover {
+      transform: scale(2.5);
+      z-index: 10;
+    }
+    
+    .product-info {
+      padding: 2rem;
+    }
+    
+    .product-title {
+      font-size: 1.8rem;
+      color: #007a7a;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .product-description {
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    
+    .product-price {
+      font-size: 2rem;
+      color: #222;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+    
+    .product-note {
+      font-size: 0.9rem;
+      color: #777;
+      font-style: italic;
     }
     
     .gallery {
@@ -395,44 +531,6 @@
       box-shadow: 0 15px 40px rgba(64,224,208,0.5);
     }
     
-    .external-link {
-      display: inline-block;
-      margin-top: 1.5rem;
-      color: white;
-      font-weight: 700;
-      text-decoration: none;
-      padding: 1rem 2rem;
-      background: linear-gradient(135deg, #e67e22, #f39c12);
-      border-radius: 50px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      box-shadow: 0 8px 20px rgba(230,126,34,0.3);
-      position: relative;
-      overflow: hidden;
-    }
-    
-    .external-link::before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 0;
-      height: 0;
-      border-radius: 50%;
-      background: rgba(255,255,255,0.3);
-      transform: translate(-50%, -50%);
-      transition: width 0.6s, height 0.6s;
-    }
-    
-    .external-link:hover::before {
-      width: 400px;
-      height: 400px;
-    }
-    
-    .external-link:hover {
-      transform: translateY(-5px) scale(1.05);
-      box-shadow: 0 15px 40px rgba(230,126,34,0.5);
-    }
-    
     footer {
       text-align: center;
       padding: 3rem;
@@ -467,6 +565,10 @@
       
       header img {
         width: 200px;
+      }
+      
+      .products-grid {
+        grid-template-columns: 1fr;
       }
     }
     
@@ -543,14 +645,15 @@
     <div class="header-content">
       <div class="logo-section">
         <a href="index.html" aria-label="StephyCakes Home">
-          <img src="stephycakeslogo.png" alt="StephyCakes logo">
+          <img src="stephycakeslogobest.png" alt="StephyCakes logo - chef hat with cake pops">
         </a>
         <h1>StephyCakes</h1>
       </div>
       <nav>
         <ul>
           <li><a href="#about">About Stephy</a></li>
-          <li><a href="#gallery">Past Work</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#gallery">Custom Cakes</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -561,41 +664,150 @@
     <section id="about">
       <h2>About Stephy</h2>
       <p>
-        Hi, I'm Steph! As a professionally trained chef, I bring artistry and passion to every cake I make. I'm proud to hold a certified food handler's certificate, ensuring every treat is as safe as it is delicious. From elegant wedding cakes to playful birthday creations, I love working with you to design something truly special.
+        Hi, I'm Steph! As a professionally trained chef, I bring artistry and passion to every cake I make. I'm proud to hold a certified food handler's certificate, ensuring every treat is as safe as it is delicious. From elegant wedding cakes to playful birthday creations, chocolate-covered strawberries to gourmet gift boxes, I love working with you to design something truly special for all your sweet treat needs.
       </p>
-      <!--
-      <a class="external-link" href="https://worksitesafety.ca/" target="_blank" rel="noopener">See my food safety certification</a>
-      -->
+      <a class="instagram-link" href="https://www.instagram.com/stephyccakes/" target="_blank" rel="noopener noreferrer">
+        📷 Follow @stephyccakes on Instagram
+      </a>
     </section>
 
+    <!-- ========== PRODUCTS SECTION - TO ADD/EDIT PRODUCTS, MODIFY THIS SECTION ========== -->
+    <section id="products">
+      <h2>Our Sweet Treats</h2>
+      <div class="products-grid">
+        
+        <!-- PRODUCT 1 - TO EDIT: Change images, title, description, and price below -->
+        <div class="product-card">
+          <div class="product-images">
+            <!-- Main product image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket3.jpg" alt="The Classic Bag" class="product-main-image">
+            <!-- Detail/close-up image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket3contents.jpg" alt="Chocolate treats close-up" class="product-detail-image" title="Click to view contents">
+          </div>
+          <div class="product-info">
+            <!-- EDIT PRODUCT TITLE HERE -->
+            <h3 class="product-title">The Classic Gift Bag</h3>
+            <!-- EDIT PRODUCT DESCRIPTION HERE -->
+            <p class="product-description">
+              Includes 8 pack of truffles, chocolate covered marshmellow and choice of chocolate cover licorice or chocolate covered sourkeys
+            </p>
+            <!-- EDIT PRICE HERE -->
+            <div class="product-price">$25.00</div>
+            <p class="product-note">Perfect for birthdays, anniversaries, or corporate gifts</p>
+          </div>
+        </div>
+
+        <!-- PRODUCT 2 - TO EDIT: Change images, title, description, and price below -->
+        <div class="product-card">
+          <div class="product-images">
+            <!-- Main product image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket2.jpg" alt="Deluxe Gift Bag" class="product-main-image">
+            <!-- Detail/close-up image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket1contents.jpg" alt="Strawberries close-up" class="product-detail-image" title="Click to view contents">
+          </div>
+          <div class="product-info">
+            <!-- EDIT PRODUCT TITLE HERE -->
+            <h3 class="product-title">Deluxe Gift Bag</h3>
+            <!-- EDIT PRODUCT DESCRIPTION HERE -->
+            <p class="product-description">
+               Includes 8 pack of truffles, a 2 pack of truffles, chocolate covered marshmellow and chocolate covered licorice or chocolate covered sourkeys.
+            </p>
+            <!-- EDIT PRICE HERE -->
+            <div class="product-price">$30.00</div>
+            <p class="product-note">Good choice for a holiday gift or someone special!</p>
+          </div>
+        </div>
+
+        <!-- PRODUCT 3 - TO EDIT: Change images, title, description, and price below -->
+        <div class="product-card">
+          <div class="product-images">
+            <!-- Main product image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket2.jpg" alt="The Premium gift bag" class="product-main-image">
+            <!-- Detail/close-up image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket2contents.jpg" alt="Chocolate Salami and treats assortment" class="product-detail-image" title="Click to view contents">
+          </div>
+          <div class="product-info">
+            <!-- EDIT PRODUCT TITLE HERE -->
+            <h3 class="product-title">The Premium Gift Bag</h3>
+            <!-- EDIT PRODUCT DESCRIPTION HERE -->
+            <p class="product-description">
+              a chocolate salami, chocolate covered marshmellow, a cluster box, 2 pack of truffles and a chocolate covered licorice or chocolate covered sourkeys.
+            </p>
+            <!-- EDIT PRICE HERE -->
+            <div class="product-price">$40.00</div>
+            <p class="product-note">Great for party favors or thank you gifts</p>
+          </div>
+        </div>
+
+        <!-- PRODUCT 4 - TO EDIT: Change images, title, description, and price below -->
+        <div class="product-card">
+          <div class="product-images">
+            <!-- Main product image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket4.jpg" alt="The Signature Gift Bag" class="product-main-image">
+            <!-- Detail/close-up image - UPDATE IMAGE FILENAME HERE -->
+            <img src="Basket4contents.jpg" alt="Chocolate treats variety" class="product-detail-image" title="Click to view contents">
+          </div>
+          <div class="product-info">
+            <!-- EDIT PRODUCT TITLE HERE -->
+            <h3 class="product-title">The Signature Gift Bag</h3>
+            <!-- EDIT PRODUCT DESCRIPTION HERE -->
+            <p class="product-description">
+              Includes 8 pack of truffles, chocholate covered Maria Cookies, chocolate covered licorice or chocolate covered sourkeys, a two pack of truffles and a chocolate covered marshmellow.
+            </p>
+            <!-- EDIT PRICE HERE -->
+            <div class="product-price">$35.00</div>
+            <p class="product-note">Perfect Hostes Gift</p>
+          </div>
+        </div>
+
+        <!-- PRODUCT 5 - TO EDIT: Change images, title, description, and price below -->
+        <div class="product-card">
+          <div class="product-images">
+            <!-- Main product image - UPDATE IMAGE FILENAME HERE -->
+            <img src="TheSupreme.jpg" alt="The Supreme Basket" class="product-main-image">
+            <!-- Detail/close-up image - UPDATE IMAGE FILENAME HERE -->
+            <img src="TheSupremecontents.jpg" alt="Celebration basket contents" class="product-detail-image" title="Click to view contents">
+          </div>
+          <div class="product-info">
+            <!-- EDIT PRODUCT TITLE HERE -->
+            <h3 class="product-title">The Supreme Basket</h3>
+            <!-- EDIT PRODUCT DESCRIPTION HERE -->
+            <p class="product-description">
+              Includes a chocolate salami, 5 chocolate covered oreos, a chocolate covered marshmellow, a chocolate covered rice krispie, 2 pack of truffles, chocolate covered sourkeys or chocolate covered licorice and a 4 pack of clusters.  
+            </p>
+            <!-- EDIT PRICE HERE -->
+            <div class="product-price">$55.00</div>
+            <p class="product-note">Perfect for weddings, corporate events, or special celebrations</p>
+          </div>
+        </div>
+
+        <!-- 
+        ========== TO ADD MORE PRODUCTS ==========
+        Copy the entire product-card div block above (from <div class="product-card"> to </div>)
+        Paste it here below this comment
+        Update the image filenames, title, description, and price
+        Save the file
+        ========================================== 
+        -->
+
+      </div>
+    </section>
+    <!-- ========== END OF PRODUCTS SECTION ========== -->
+
     <section id="gallery">
-      <h2>Past Work</h2>
+      <h2>Custom Cakes</h2>
       <div class="gallery">
-        <a href="cake1wedding.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
-          <img src="cake1wedding.jpg" alt="Elegant white wedding cake with floral decoration">
-        </a>
         <a href="caake2kid.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
-          <img src="caake2kid.jpg" alt="Colorful children's birthday cake with fun decorations">
+          <img src="caake2kid.jpg" alt="Gaming themed Xbox controller cake with candy toppings">
+        </a>
+        <a href="cake1wedding.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
+          <img src="cake1wedding.jpg" alt="Elegant two-tier cake with burgundy and pink flowers">
         </a>
         <a href="cake3cross.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
-          <img src="cake3cross.jpg" alt="Cross-shaped cake for a special occasion">
+          <img src="cake3cross.jpg" alt="Pink baptism cake with gold cross and fresh roses">
         </a>
         <a href="cake4batman.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
-          <img src="cake4batman.jpg" alt="Batman-themed cake with logo and cityscape">
+          <img src="cake4batman.jpg" alt="Batman themed two-tier birthday cake with utility belt">
         </a>
       </div>
     </section>
-
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Contact <a href="mailto:stephycakes@hotmail.ca">stephycakes@hotmail.ca</a> to get a quote and discuss local pickup or delivery around Bolton, ON.
-      </p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2024 StephyCakes. All rights reserved.</p>
-  </footer>
-</body>
-</html>
