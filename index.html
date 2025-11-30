@@ -218,6 +218,7 @@
     section:nth-child(2) { animation-delay: 0.2s; }
     section:nth-child(3) { animation-delay: 0.3s; }
     section:nth-child(4) { animation-delay: 0.4s; }
+    section:nth-child(5) { animation-delay: 0.5s; }
     
     section::before {
       content: '';
@@ -400,6 +401,40 @@
       font-size: 0.9rem;
       color: #777;
       font-style: italic;
+    }
+
+    /* COMPACT STYLE FOR INDIVIDUAL PRODUCTS SECTION ONLY */
+    #individual-products .products-grid {
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 2rem;
+    }
+    
+    #individual-products .product-images {
+      height: 260px;
+    }
+    
+    #individual-products .product-info {
+      padding: 1.2rem 1.5rem;
+    }
+    
+    #individual-products .product-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.6rem;
+    }
+    
+    #individual-products .product-description {
+      font-size: 0.9rem;
+      line-height: 1.4;
+      margin-bottom: 0.7rem;
+    }
+    
+    #individual-products .product-price {
+      font-size: 1.2rem;
+      margin-bottom: 0.4rem;
+    }
+    
+    #individual-products .product-note {
+      font-size: 0.8rem;
     }
     
     .gallery {
@@ -653,6 +688,7 @@
         <ul>
           <li><a href="#about">About Stephy</a></li>
           <li><a href="#products">Gift Bags</a></li>
+          <li><a href="#individual-products">Products</a></li>
           <li><a href="#gallery">Custom Cakes</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -763,9 +799,216 @@
       </div>
     </section>
 
+    <!-- INDIVIDUAL PRODUCTS SECTION -->
+    <!-- To add more products, copy the entire <div class="product-card">...</div> block below -->
+    <!-- and paste it after the closing </div> of the previous product -->
+    <section id="individual-products">
+      <h2>Individual Products</h2>
+      <div class="products-grid">
+        
+        <!-- PRODUCT EXAMPLE - Copy from here to add a new product -->
+        <div class="product-card">
+          <div class="product-images">
+            <a href="2packassortedtruffles(4).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="2packassortedtruffles(4).jpg" alt="2packassortedtruffles" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">2 Pack Assorted Truffles</h3>
+            <p class="product-description">
+              Two-piece assorted chocolate truffle pack.
+            </p>
+            <div class="product-price">$4</div>
+            <p class="product-note">Perfect little add-on treat.</p>
+          </div>
+        </div>
+        <!-- END PRODUCT EXAMPLE - Copy to here when adding new products -->
+
+        <!-- Additional products -->
+        <div class="product-card">
+          <div class="product-images">
+            <a href="4packassortedtruffle(9).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="4packassortedtruffle(9).jpg" alt="4packassortedtruffle" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">4 Pack Assorted Truffles</h3>
+            <p class="product-description">
+              Four-piece assorted chocolate truffle box.
+            </p>
+            <div class="product-price">$9</div>
+            <p class="product-note">Great for gifting or sharing.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="5packchocolatecoveredoros(10).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="5packchocolatecoveredoros(10).jpg" alt="5packchocolatecoveredoros" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">5 Pack Oreos</h3>
+            <p class="product-description">
+              Five chocolate-covered Oreos with drizzle.
+            </p>
+            <div class="product-price">$10</div>
+            <p class="product-note">Crunchy, creamy and chocolatey.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="8packassortedtruffles(18).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="8packassortedtruffles(18).jpg" alt="8packassortedtruffles" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">8 Pack Assorted Truffles</h3>
+            <p class="product-description">
+              Eight-piece assorted truffle gift box.
+            </p>
+            <div class="product-price">$18</div>
+            <p class="product-note">Lovely small gift or hostess present.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="assortedclusters(9).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="assortedclusters(9).jpg" alt="assortedclusters" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Assorted Clusters</h3>
+            <p class="product-description">
+              Assortment of handmade chocolate clusters.
+            </p>
+            <div class="product-price">$9</div>
+            <p class="product-note">Great mix of flavours and textures.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="chocholatecovedmariacookies(6).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="chocholatecovedmariacookies(6).jpg" alt="chocholatecovedmariacookies" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Mariacookies</h3>
+            <p class="product-description">
+              Chocolate covered Maria cookies.
+            </p>
+            <div class="product-price">$6</div>
+            <p class="product-note">Simple, classic and delicious.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="chocholatecoveredsourkeys(5).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="chocholatecoveredsourkeys(5).jpg" alt="chocholatecoveredsourkeys" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Sourkeys</h3>
+            <p class="product-description">
+              4 Pack of Sour keys dipped in milk chocolate.
+            </p>
+            <div class="product-price">$5</div>
+            <p class="product-note">Sweet, tangy and fun.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="chocholatecovereedmarshmellows(4eachor3for10).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="chocholatecovereedmarshmellows(4eachor3for10).jpg" alt="chocholatecovereedmarshmellows" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Marshmellow Stick</h3>
+            <p class="product-description">
+              Chocolate covered marshmallows on a stick.
+            </p>
+            <div class="product-price">$4 each or 3 for $10</div>
+            <p class="product-note">Perfect stocking stuffer treat.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="chocolatecoveredlicorice(5).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="chocolatecoveredlicorice(5).jpg" alt="chocolatecoveredlicorice" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Licorice</h3>
+            <p class="product-description">
+              A Pack of Chocolate covered licorice twists.
+            </p>
+            <div class="product-price">$5</div>
+            <p class="product-note">Chewy and rich in chocolate.</p>
+          </div>
+        </div>
+
+        <div class="product-card">
+          <div class="product-images">
+            <a href="chocolatecoveredricekrispie(4).jpg" target="_blank" rel="noopener noreferrer">
+              <img src="chocolatecoveredricekrispie(4).jpg" alt="chocolatecoveredricekrispie" class="product-main-image">
+            </a>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Rice krispie Square Stick</h3>
+            <p class="product-description">
+              Chocolate covered rice krispie square.
+            </p>
+            <div class="product-price">$4</div>
+            <p class="product-note">Crispy, gooey and chocolatey.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
     <section id="gallery">
       <h2>Custom Cakes</h2>
       <div class="gallery">
+        <a href="caake2kid.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
+          <img src="caake2kid.jpg" alt="Gaming themed Xbox controller cake with candy toppings">
+        </a>
+        <a href="cake1wedding.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
+          <img src="cake1wedding.jpg" alt="Elegant two-tier cake with burgundy and pink flowers">
+        </a>
+        <a href="cake3cross.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
+          <img src="cake3cross.jpg" alt="Pink baptism cake with gold cross and fresh roses">
+        </a>
+        <a href="cake4batman.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
+          <img src="cake4batman.jpg" alt="Batman themed two-tier birthday cake with utility belt">
+        </a>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>Ready to order your custom cake or sweet treats?</p>
+      <p>
+        <a href="mailto:stephycakes@hotmail.ca">📧 Email us at stephycakes@hotmail.ca</a>
+      </p>
+      <p>
+        <a href="tel:+14167956965">📱 Call us at 416-795-6965</a>
+      </p>
+      <p style="margin-top: 1rem; font-size: 1.1rem;">Click email or phone above to contact us directly!</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 StephyCakes. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+
         <a href="caake2kid.jpg" class="gallery-item" target="_blank" rel="noopener noreferrer">
           <img src="caake2kid.jpg" alt="Gaming themed Xbox controller cake with candy toppings">
         </a>
@@ -796,3 +1039,4 @@
   </footer>
 </body>
 </html>
+
